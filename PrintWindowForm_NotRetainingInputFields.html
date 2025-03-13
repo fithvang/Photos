@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends of Sandhill Membership Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f9f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 85%;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #2d6a4f;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between radio buttons */
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], input[type="tel"], input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: none;
+            border-bottom: 2px solid #2d6a4f;
+            outline: none;
+            font-size: 16px;
+            background: transparent;
+        }
+
+        .footer {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        .payment-info {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .addresses {
+            display: flex;
+            justify-content: center;
+            gap: 100px; /* Space between 'mail sent to: address sections' */
+            text-align: left;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .print-btn-container {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .print-btn {
+            display: inline-block;
+            width: 50%;
+            padding: 10px;
+            background-color: #40916c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        @media print {
+            .print-btn-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="membership-form">
+        <h1>Friends of Sandhill Membership Form</h1>
+
+        <div>
+            <h2>Benefits to Members</h2>
+            <ul>
+                <li>Camaraderie with outdoor enthusiasts</li>
+                <li>Participate in wildlife conservation projects</li>
+                <li>10% off Friends of Sandhill merchandise</li>
+                <li>Receive the Friends of Sandhill Newsletter</li>
+                <li>Overnight use of dormitory facilities for special events or activities</li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>Membership Options (Annual)</h2>
+            <div class="radio-group">
+                <label><input type="radio" name="membership" value="30"> Regular ($30)</label>
+                <label><input type="radio" name="membership" value="50"> Family ($50)</label>
+                <label><input type="radio" name="membership" value="100"> Patron ($100)</label>
+                <label><input type="radio" name="membership" value="200"> Benefactor ($200)</label>
+            </div>
+        </div>
+
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="email">Email (optional)</label>
+            <input type="email" id="email" name="email">
+        </div>
+
+        <div class="footer">
+            <p><strong>Reminder:</strong> Friends of Sandhill memberships expire at year-end. Your support matters, even if you can’t attend events!</p>
+            <p><strong>Special Note:</strong> New memberships paid in the last quarter of the year are good until the end of the following year.</p>
+            <p><strong>We send the newsletter and other info by e-mail whenever possible. We DO NOT solicit funds by phone.</strong></p>
+        </div>
+
+        <!-- Payment Info -->
+        <div class="payment-info">
+            <p><strong>(Make checks payable to Friends of Sandhill)</strong></p>
+        </div>
+
+        <div class="addresses">
+            <div>
+                <p><strong>Mail your payment to:</strong><br>
+                   Friends of Sandhill, Inc.<br>
+                   P.O. Box 156<br>
+                   Babcock, WI 54413</p>
+            </div>
+            <div> 
+                <p><strong>Or send it to:</strong><br>
+                   Vicki Palen, Treasurer, FOS<br>
+                   3837 County Rd N<br>
+                   Milladore, WI 54454</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Print Button -->
+    <div class="print-btn-container">
+        <button class="print-btn" onclick="printForm()">Print Membership</button>
+    </div>
+
+    <script>
+    function printForm() {
+        var formContent = document.getElementById("membership-form").outerHTML;
+
+        var printWindow = window.open('', '', 'width=800,height=900');
+        
+        printWindow.document.write('<html><head><title>Print Membership Form</title>');
+        printWindow.document.write('<style>');
+        printWindow.document.write('body { font-family: Arial, sans-serif; line-height: 1.6; color: #000; background: #fff; margin: 20px; padding: 0; text-align: left; }');
+        printWindow.document.write('h1, h2 { text-align: center; color: #2d6a4f; }');
+        printWindow.document.write('ul { list-style-type: disc; padding-left: 20px; }');
+        printWindow.document.write('label { font-weight: bold; }');
+        printWindow.document.write('input { width: 100%; padding: 8px; border: none; border-bottom: 2px solid #2d6a4f; outline: none; font-size: 16px; background: transparent; }');
+        printWindow.document.write('.radio-group { display: flex; justify-content: center; gap: 20px; }');
+
+        printWindow.document.write('<br><br>');
+
+        printWindow.document.write('.payment-info { text-align: center; font-weight: bold; margin-top: 20px; }');
+        printWindow.document.write('.addresses { display: flex; justify-content: center; gap: 100px; text-align: left; font-style: italic; margin-top: 10px; }');
+        printWindow.document.write('.addresses div { min-width: 300px; }');
+        printWindow.document.write('@media print { body { font-size: 14px; } }');
+        printWindow.document.write('</style></head><body>');
+        printWindow.document.write(formContent);
+        printWindow.document.write('</body></html>');
+
+        printWindow.document.close();
+        printWindow.print();
+    }
+</script>
+
+</body>
+</html>
